@@ -2,6 +2,7 @@ from collections import Counter
 from copy import copy
 from dataclasses import dataclass
 from enum import Enum, IntEnum
+from itertools import product
 from typing import List
 
 LABEL_RANKS = {'A': 13, 'K': 12, 'Q': 11, 'J': 10, 'T': 9, '9': 8, '8': 7, '7': 6, '6': 5, '5': 4, '4': 3, '3': 2, '2': 1}
@@ -44,7 +45,6 @@ def determine_hand_type(hand: str, replace_jokers: bool = False) -> HandType:
     if replace_jokers:
         if n := counted_cards["J"]:
             all_hand_types = set()
-            from itertools import product
             for combination in product(*n * [LABEL_RANKS.keys() - {"J"}]):
                 hand_copy = copy(hand)
                 for char in combination:
