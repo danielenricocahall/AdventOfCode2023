@@ -4,7 +4,7 @@ from typing import List, Dict
 
 def navigate_map(_map: Dict[str, List[str]], directions: str):
     steps = 0
-    current_node = next(k for k in _map.keys())
+    current_node = 'AAA'
     directions_counter = 0
     while current_node != 'ZZZ':
         steps += 1
